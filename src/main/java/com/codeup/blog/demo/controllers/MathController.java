@@ -26,7 +26,14 @@ public class MathController {
 
     @RequestMapping(path = "/divide/{number}/by/{number2}", method = RequestMethod.GET)
     @ResponseBody
-    public String divideTwoNumbers(@PathVariable int number, @PathVariable int number2) {
+    public String divideTwoNumbers(@PathVariable double number, @PathVariable double number2) {
+        if(number2 == 0){
+            return number2 + " cannot be divided by zero.";
+        }
         return number + " divided by " + number2 + " equals " + (number/number2) + "!";
     }
+
+    /// When handling division, it's best to accept doubles in parameter so that partial values (decimals) may be accounted for.
+
+
 }

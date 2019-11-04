@@ -9,7 +9,7 @@ public class HelloController {
     @GetMapping("/hello")
     @ResponseBody
     public String sayHello(){
-        return "hey";
+        return "<h1>hey</h1>";
     }
 
     @GetMapping("/hello/{name}")
