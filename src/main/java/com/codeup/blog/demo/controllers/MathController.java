@@ -35,5 +35,6 @@ public class MathController {
 
     /// When handling division, it's best to accept doubles in parameter so that partial values (decimals) may be accounted for.
 
+    /// I chose to build a string rather than use String.valueOf(param1 ... )
 
 }

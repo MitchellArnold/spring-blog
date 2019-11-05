@@ -14,8 +14,8 @@ public class PostController {
 
     @RequestMapping(path = "/posts/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public String singlePost(@PathVariable String id){
-        return "Yo! This is post numba" + id + "!";
+    public String singlePost(@PathVariable long id){
+        return "Yo! This is post numba " + id + "!";
     }
 
     @GetMapping("/posts/create")
@@ -24,9 +24,11 @@ public class PostController {
         return "Created yo post!";
     }
 
-    @PostMapping(path = "/posts/create", consumes = "posts/create", produces = "posts/create")
+    @PostMapping("/posts/create")
     @ResponseBody
-    public String createNewPost(@PathVariable String createNew){
+    public String createNewPost(@RequestParam String title,@RequestParam String body){
+        System.out.println("title = " + title);
+        System.out.println("body = " + body);
         return "Created Post!";
     }
 
