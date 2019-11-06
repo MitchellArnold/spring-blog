@@ -11,15 +11,9 @@ import java.util.ArrayList;
 public class HomeController {
 
     @GetMapping("/")
-    public String index(Model viewModel){
+    public String index(){
 
-//        ArrayList<Post> adsList = new ArrayList<Post>();
-//
-//        adsList.add(new Post(1,"first ad", "new"));
-//        adsList.add(new Post(2,"second ad", "new"));
-//        adsList.add(new Post(3,"third ad", "used"));
-//
-//        viewModel.addAttribute("ads", adsList);
+
 
         return "homepage";
     }
