@@ -11,17 +11,21 @@ public class PostDetails {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, columnDefinition="int(11) UNSIGNED")
     private long id;
 
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "boolean")
     private boolean isAwesome;
 
     @Column(nullable = false, columnDefinition = "TEXT")
     private String historyOfPost;
 
-    @Column(nullable = false)
+    @Column(columnDefinition = "TEXT")
     private String topicDescription;
+
+    @OneToOne(mappedBy = "postDetails")
+    private Post post;
 
     public PostDetails(long id, boolean isAwesome, String historyOfPost, String topicDescription) {
         this.id = id;
@@ -62,5 +66,13 @@ public class PostDetails {
 
     public void setTopicDescription(String topicDescription) {
         this.topicDescription = topicDescription;
+    }
+
+    public Post getPost() {
+        return post;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
     }
 }

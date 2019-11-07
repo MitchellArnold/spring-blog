@@ -11,13 +11,14 @@ public class Post {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
+    @Column(nullable=false, columnDefinition = "int(11) UNSIGNED")
     private long id;
 
 
     @Column(nullable = false, length = 100)
     private String title;
 
-    @Column(nullable = false)
+    @Column(columnDefinition = "TEXT ")
     private String description;
 
     @OneToOne
@@ -54,4 +55,13 @@ public class Post {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public PostDetails getPostDetails() {
+        return postDetails;
+    }
+
+    public void setPetDetails(PostDetails petDetails) {
+        this.postDetails = petDetails;
+    }
+
 }
