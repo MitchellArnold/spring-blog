@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1 th:text="${post.title}"></h1>
+<h3 th:text="${post.postDetails.historyOfPost}"></h3>
+
+<form th:action="@{'/posts/update/' + ${post.id}}" th:method="post">
+    <label for="history">Personality</label>
+    <input id="history" type="text" name="history" th:value="${post.postDetails.historyOfPost}">
+    <button>Change Personality</button>
+</form>
+
+</body>
+</html>

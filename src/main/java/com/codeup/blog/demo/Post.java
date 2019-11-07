@@ -20,11 +20,16 @@ public class Post {
     @Column(nullable = false)
     private String description;
 
+    @OneToOne
+    private PostDetails postDetails;
+
     public Post(long id, String title, String description) {
         this.id = id;
         this.title = title;
         this.description = description;
     }
+
+    public Post(){}
 
     public long getId() {
         return id;
