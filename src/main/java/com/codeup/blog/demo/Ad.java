@@ -17,6 +17,11 @@ public class Ad {
     @Column(columnDefinition = "TEXT")
     private String description;
 
+
+    public Ad(){
+
+    }
+
     public Ad(long id, String title, String description) {
         this.id = id;
         this.title = title;

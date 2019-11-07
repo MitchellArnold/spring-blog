@@ -35,6 +35,7 @@ public class AdController {
     }
 
     @GetMapping("/ads/create")
+    @ResponseBody
     public String showCreateForm(){
         return "view the form for creating a ad";
     }
