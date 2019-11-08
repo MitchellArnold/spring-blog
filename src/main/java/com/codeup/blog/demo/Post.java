@@ -1,16 +1,43 @@
 package com.codeup.blog.demo;
 
+import javax.persistence.*;
+import java.util.List;
+
+    @Entity
+    @Table(
+            name = "posts"
+    )
+
 public class Post {
 
+    @Id
+    @GeneratedValue( strategy = GenerationType.IDENTITY)
+    @Column(nullable=false, columnDefinition = "int(11) UNSIGNED")
     private long id;
+
+
+    @Column(nullable = false, length = 100)
     private String title;
+
+    @Column(columnDefinition = "TEXT ")
     private String description;
 
-    public Post(long id, String title, String description) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-    }
+//    @OneToOne
+//    private PostDetails postDetails;
+//
+//    public Post(long id, String title, String description) {
+//        this.id = id;
+//        this.title = title;
+//        this.description = description;
+//    }
+
+    @ManyToMany(mappedBy = "posts", cascade = CascadeType.ALL)
+    private List<Tag> tags;
+
+    @ManyToOne
+    @JoinColumn (name = "")
+
+    public Post(){}
 
     public long getId() {
         return id;
@@ -35,4 +62,13 @@ public class Post {
     public void setDescription(String description) {
         this.description = description;
     }
+
+//    public PostDetails getPostDetails() {
+//        return postDetails;
+//    }
+//
+//    public void setPetDetails(PostDetails petDetails) {
+//        this.postDetails = petDetails;
+//    }
+
 }
