@@ -1,4 +1,4 @@
-package com.codeup.blog.demo;
+package com.codeup.blog;
 
 import javax.persistence.*;
 

@@ -49,10 +49,8 @@
 //}
 
 
-package com.codeup.blog.demo;
+package com.codeup.blog;
 
-
-import com.codeup.blog.demo.User;
 
 import javax.persistence.*;
 

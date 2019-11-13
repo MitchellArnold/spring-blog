@@ -80,10 +80,8 @@
 //}
 
 
-package com.codeup.blog.demo;
+package com.codeup.blog;
 
-
-import com.codeup.blog.demo.Ad;
 
 import javax.persistence.*;
 import java.util.List;
@@ -111,10 +109,22 @@ public class User {
     public User() {
     }
 
-    public User(String username, String email, String password) {
+    public User(
+            //    Long id,
+            String username,
+            String email,
+            String password) {
+//        this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
+    }
+
+    public User(User copy){
+        id = copy.id;
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
     }
 
     public long getId() {
@@ -155,5 +165,9 @@ public class User {
 
     public void setPosts(List<Ad> posts) {
         this.posts = posts;
+    }
+
+    public void save() {
+        System.out.println("saving this user " + this.getUsername());
     }
 }

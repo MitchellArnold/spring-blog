@@ -1,7 +1,5 @@
-package com.codeup.blog.demo.repositories;
-import com.codeup.blog.demo.Post;
-import org.hibernate.annotations.SQLDelete;
-import org.hibernate.annotations.SQLInsert;
+package com.codeup.blog.repositories;
+import com.codeup.blog.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

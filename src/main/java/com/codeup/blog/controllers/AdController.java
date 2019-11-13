@@ -50,18 +50,16 @@
 //}
 
 
-package com.codeup.blog.demo.controllers;
+package com.codeup.blog.controllers;
 
-        import com.codeup.blog.demo.Ad;
-        import com.codeup.blog.demo.repositories.AdRepository;
-        import com.codeup.blog.demo.repositories.UserRepository;
-        import com.codeup.blog.demo.services.EmailService;
+        import com.codeup.blog.Ad;
+        import com.codeup.blog.repositories.AdRepository;
+        import com.codeup.blog.repositories.UserRepository;
+        import com.codeup.blog.services.EmailService;
         import org.springframework.beans.factory.annotation.Autowired;
         import org.springframework.stereotype.Controller;
         import org.springframework.ui.Model;
         import org.springframework.web.bind.annotation.*;
-
-        import java.util.List;
 
 @Controller
 public class AdController {

@@ -21,7 +21,7 @@
 //}
 //
 
-package com.codeup.blog.demo.controllers;
+package com.codeup.blog.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

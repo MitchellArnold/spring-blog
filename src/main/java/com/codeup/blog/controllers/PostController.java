@@ -35,18 +35,15 @@
 //
 //}
 
-package com.codeup.blog.demo.controllers;
+package com.codeup.blog.controllers;
 
-import com.codeup.blog.demo.Post;
-import com.codeup.blog.demo.repositories.PostRepository;
+import com.codeup.blog.Post;
+import com.codeup.blog.repositories.PostRepository;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Controller
 class PostController {
