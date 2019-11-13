@@ -1,6 +1,9 @@
 package com.codeup.blog.demo;
 
+import org.aspectj.apache.bcel.generic.Tag;
+
 import javax.persistence.*;
+import java.awt.image.ImageProducer;
 import java.util.List;
 
     @Entity
@@ -25,19 +28,22 @@ public class Post {
 //    @OneToOne
 //    private PostDetails postDetails;
 //
-//    public Post(long id, String title, String description) {
-//        this.id = id;
-//        this.title = title;
-//        this.description = description;
-//    }
+    public Post(long id, String title, String description) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+    }
 
-    @ManyToMany(mappedBy = "posts", cascade = CascadeType.ALL)
-    private List<Tag> tags;
+//    @ManyToMany(mappedBy = "posts", cascade = CascadeType.ALL)
+//    private List<Tag> tags;
 
-    @ManyToOne
-    @JoinColumn (name = "")
+//    @ManyToOne(mappedBy = "posts", cascade = CascadeType.ALL)
+//    private List<User> user;
 
     public Post(){}
+
+    public Post(String author, String title, String content) {
+    }
 
     public long getId() {
         return id;

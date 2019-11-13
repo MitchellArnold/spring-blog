@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View All Ads</title>
+    <th:block th:replace="fragments/header :: main-header(false)"/>
+</head>
+<body>
+
+<div th:replace="fragments/navbar :: main-navbar"></div>
+
+<div class="container">
+
+    <header class="jumbotron my-3">
+        <h1 class="display-3 text-center">Featured Ads</h1>
+    </header>
+
+    <div class="card p-3 my-3" th:each="ad : ${ads}">
+        <a th:href="@{'ads/' + ${ad.id}}">
+            <h1 th:text="${ad.title}"></h1>
+            <p th:text="${ad.description}"></p>
+        </a>
+    </div>
+
+</div>
+
+
+<th:block th:replace="fragments/footer :: main-footer"/>
+</body>
+</html>
