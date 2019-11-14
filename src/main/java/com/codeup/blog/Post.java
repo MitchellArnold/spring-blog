@@ -12,37 +12,39 @@ import java.util.List;
     )
 
 public class Post {
-
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
-    @Column(nullable=false, columnDefinition = "int(11) UNSIGNED")
+    @Column(columnDefinition = "int(11) UNSIGNED", nullable=false)
     private long id;
-
 
     @Column(nullable = false, length = 100)
     private String title;
 
-    @Column(columnDefinition = "TEXT ")
-    private String description;
+    @Column(columnDefinition = "text", nullable =false)
+    private String body;
 
 //    @OneToOne
 //    private PostDetails postDetails;
 //
-    public Post(long id, String title, String description) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-    }
+//    public Post(long id, String title, String description) {
+//        this.id = id;
+//        this.title = title;
+//        this.description = description;
+//    }
 
 //    @ManyToMany(mappedBy = "posts", cascade = CascadeType.ALL)
 //    private List<Tag> tags;
 
-//    @ManyToOne(mappedBy = "posts", cascade = CascadeType.ALL)
-//    private List<User> user;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    public Post(){}
+    public Post() { }
 
-    public Post(String author, String title, String content) {
+    public Post(String title, String body, User user) {
+        this.title = title;
+        this.body = body;
+        this.user = user;
     }
 
     public long getId() {
@@ -61,20 +63,19 @@ public class Post {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
+    public String getBody() {
+        return body;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setBody(String description) {
+        this.body = description;
     }
 
-//    public PostDetails getPostDetails() {
-//        return postDetails;
-//    }
-//
-//    public void setPetDetails(PostDetails petDetails) {
-//        this.postDetails = petDetails;
-//    }
+    public User getUser() {
+        return user;
+    }
 
+    public void setUser(User user){
+        this.user = user;
+    }
 }

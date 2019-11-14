@@ -1,6 +1,6 @@
 package com.codeup.blog.services;
 
-import com.codeup.blog.Ad;
+import com.codeup.blog.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailException;
@@ -18,16 +18,16 @@ public class EmailService {
         @Value("${spring.mail.from}")
         private String from;
 
-        public void prepareAndSend(Ad ad, String subject, String body) {
-            SimpleMailMessage msg = new SimpleMailMessage();
-            msg.setFrom(from);
-            msg.setTo(ad.getUser().getEmail());
-            msg.setSubject(subject);
-            msg.setText(body);
+        public void prepareAndSend(Post post, String subject, String body) {
+            SimpleMailMessage emailMsg = new SimpleMailMessage();
+            emailMsg.setFrom(from);
+            emailMsg.setTo(post.getUser().getEmail());
+            emailMsg.setSubject(subject);
+            emailMsg.setText(body);
 
 
             try{
-                this.emailSender.send(msg);
+                this.emailSender.send(emailMsg);
             }
             catch (MailException ex) {
                 // simply log it and go on...
